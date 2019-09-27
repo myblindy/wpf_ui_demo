@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:uidemo">
+
+    <Color x:Key="BackgroundColor">LightGray</Color>
+    <Color x:Key="BackgroundSelectedColor">Blue</Color>
+    <SolidColorBrush x:Key="BackgroundBrush">LightGray</SolidColorBrush>
+    <SolidColorBrush x:Key="ForegroundTextBrush">Black</SolidColorBrush>
+    <Color x:Key="ForegroundTextColor">Black</Color>
+    <Color x:Key="ForegroundTextSelectedColor">White</Color>
+</ResourceDictionary>

@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:uidemo">
+
+    <Style TargetType="{x:Type local:MainWindow}">
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+    </Style>
+    
+    <Style x:Key="BottomBarStyle" TargetType="StackPanel">
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Margin" Value="-23,0,0,0"/>
+
+        <Style.Resources>
+            <Style TargetType="RadioButton">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid Background="Transparent" Margin="-23, 0" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="10"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border x:Name="Border" Grid.ColumnSpan="3" Background="{DynamicResource BackgroundBrush}" 
+                                        BorderBrush="Gray" BorderThickness="0,0,1,0">
+                                    <Border.LayoutTransform>
+                                        <TransformGroup>
+                                            <SkewTransform AngleX="30"/>
+                                        </TransformGroup>
+                                    </Border.LayoutTransform>
+                                </Border>
+                                <Grid Grid.Column="1" Height="80" Width="120">
+                                    <TextBlock Foreground="{DynamicResource ForegroundTextBrush}" Text="{TemplateBinding Content}"
+                                               x:Name="TextBlock" TextAlignment="Center" VerticalAlignment="Center" />
+                                </Grid>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+
+                                <!-- checked -->
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="Border" 
+                                                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)" 
+                                                                To="{StaticResource BackgroundSelectedColor}" Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="TextBlock" 
+                                                                Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" 
+                                                                To="{StaticResource ForegroundTextSelectedColor}" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiDataTrigger.EnterActions>
+                                    <MultiDataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="Border" 
+                                                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)" 
+                                                                To="{StaticResource BackgroundColor}" Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="TextBlock" 
+                                                                Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" 
+                                                                To="{StaticResource ForegroundTextColor}" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiDataTrigger.ExitActions>
+                                </MultiDataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="DarkModeButtonStyle" TargetType="CheckBox">
+        <Setter Property="Margin" Value="5"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <ControlTemplate.Resources>
+                        <local:VisibleIfTrueConverter x:Key="VisibleIfTrueConverter"/>
+                        <local:VisibleIfFalseConverter x:Key="VisibleIfFalseConverter"/>
+                    </ControlTemplate.Resources>
+                    <Grid Background="{DynamicResource BackgroundBrush}">
+                        <Path Fill="{DynamicResource ForegroundTextBrush}" Data="M5.895 9.148c0.848 8.959 8 16.109 16.957 16.953-1.91 1.211-4.152 1.898-6.5 1.898-6.813 0.001-12.352-5.538-12.352-12.353 0-2.347 0.688-4.587 1.895-6.498zM11.844 0c-6.824 1.969-11.844 8.189-11.844 15.646 0 9.034 7.32 16.354 16.352 16.354 7.457 0 13.68-5.023 15.648-11.844-2.18 1.258-4.672 2.031-7.367 2.031-8.188 0-14.82-6.639-14.82-14.822-0.001-2.695 0.773-5.187 2.031-7.365v0z" 
+                              Visibility="{TemplateBinding IsChecked, Converter={StaticResource VisibleIfFalseConverter}}"/>
+                        <Path Fill="{DynamicResource ForegroundTextBrush}" Data="M24.633 22.184c-8.188 0-14.82-6.637-14.82-14.82 0-2.695 0.773-5.188 2.031-7.363-6.824 1.968-11.844 8.187-11.844 15.644 0 9.031 7.32 16.355 16.352 16.355 7.457 0 13.68-5.023 15.648-11.844-2.18 1.254-4.672 2.028-7.367 2.028z" 
+                              Visibility="{TemplateBinding IsChecked, Converter={StaticResource VisibleIfTrueConverter}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

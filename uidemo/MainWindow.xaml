@@ -1,0 +1,21 @@
+﻿<Window x:Class="uidemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:uidemo"
+        Title="MainWindow" Width="800" Height="600">
+
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
+            <CheckBox Style="{StaticResource DarkModeButtonStyle}" IsChecked="{Binding Path=(local:GlobalState.Instance).DarkMode}"/>
+        </StackPanel>
+        <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="Gray">
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource BottomBarStyle}">
+                <RadioButton>MAP</RadioButton>
+                <RadioButton>APPROACH</RadioButton>
+                <RadioButton>ARF</RadioButton>
+                <RadioButton>RUNWAYS</RadioButton>
+            </StackPanel>
+        </Border>
+        <Canvas Background="Transparent"/>
+    </DockPanel>
+</Window>
