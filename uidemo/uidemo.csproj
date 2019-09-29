@@ -7,7 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Page Update="Pages\Approach.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Arf.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Runways.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Map.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\DarkStyleResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\LightStyleResources.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\CommonStyleResources.xaml">
