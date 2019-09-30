@@ -8,14 +8,22 @@
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right">
             <CheckBox Style="{StaticResource DarkModeButtonStyle}" IsChecked="{Binding Path=(local:GlobalState.Instance).DarkMode}"/>
         </StackPanel>
+        
         <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="Gray">
-            <StackPanel Orientation="Horizontal" Style="{DynamicResource BottomBarStyle}">
-                <RadioButton>MAP</RadioButton>
-                <RadioButton IsChecked="True">APPROACH</RadioButton>
-                <RadioButton>ARF</RadioButton>
-                <RadioButton>RUNWAYS</RadioButton>
-            </StackPanel>
+            <ItemsControl ItemsSource="{Binding ActionBarItems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Style="{DynamicResource BottomBarStyle}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Checked="ActionBarItem_Checked" GroupName="ActionBarItems" Content="{Binding Name}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Border>
-        <Canvas Background="Transparent"/>
+
+        <Frame x:Name="MainFrame" Navigated="MainFrame_Navigated" NavigationUIVisibility="Hidden" />
     </DockPanel>
 </Window>

@@ -5,7 +5,7 @@
     <Style TargetType="{x:Type local:MainWindow}">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
     </Style>
-    
+
     <Style x:Key="BottomBarStyle" TargetType="StackPanel">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
         <Setter Property="Margin" Value="-23,0,0,0"/>
@@ -96,4 +96,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

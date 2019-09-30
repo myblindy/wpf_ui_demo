@@ -1,0 +1,8 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Map" Background="Turquoise">
+    <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="PRETEND THIS IS A RUNWAY" Foreground="{DynamicResource ForegroundTextBrush}" />
+        <TextBlock Text="PLANES LAND HERE!!" Foreground="{DynamicResource ForegroundTextBrush}" />
+    </StackPanel>
+</Page>
