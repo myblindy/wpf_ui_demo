@@ -60,7 +60,7 @@ namespace uidemo
             TranslateTransform.BeginAnimation(TranslateTransform.XProperty, new DoubleAnimation(ActualWidth * 2, 0, duration) { EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut } });
             await Task.Delay(duration);
 
-            duration = TimeSpan.FromSeconds(.3);
+            duration = TimeSpan.FromSeconds(.1);
             ScaleTransform.BeginAnimation(ScaleTransform.ScaleXProperty, new DoubleAnimation(1, duration));
             ScaleTransform.BeginAnimation(ScaleTransform.ScaleYProperty, new DoubleAnimation(1, duration));
         }
