@@ -11,7 +11,7 @@ namespace uidemo
     {
         public static GlobalState Instance { get; } = new GlobalState();
 
-        bool darkMode;
+        bool darkMode = true;
         public bool DarkMode
         {
             get => darkMode;

@@ -11,7 +11,7 @@
         <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="Gray">
             <StackPanel Orientation="Horizontal" Style="{DynamicResource BottomBarStyle}">
                 <RadioButton>MAP</RadioButton>
-                <RadioButton>APPROACH</RadioButton>
+                <RadioButton IsChecked="True">APPROACH</RadioButton>
                 <RadioButton>ARF</RadioButton>
                 <RadioButton>RUNWAYS</RadioButton>
             </StackPanel>
